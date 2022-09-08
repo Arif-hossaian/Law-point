@@ -5,10 +5,13 @@ import { Button } from '../Button';
 
 export const Laws = () => {
   return (
-    <section id="projects" className="relative py-16">
+    <section
+      id="projects"
+      className="relative py-16 mx-auto max-w-screen-lg px-5"
+    >
       <span className="absolute inset-2/4 -z-10 h-[500px] max-h-full w-[500px] max-w-full -translate-y-1/2 -translate-x-1/2 rounded-full bg-gradient-radial from-indigo-500/40 via-fuchsia-400/20 blur-2xl" />
       <div className="flex flex-col lg:flex-row lg:items-center">
-        <div className="mx-auto max-w-md text-center lg:order-2 lg:mx-0 lg:ml-16 lg:max-w-sm lg:text-left">
+        <div className="mx-auto max-w-screen-lg  text-center lg:order-2 lg:mx-0 lg:ml-16 lg:max-w-sm lg:text-left">
           <h2 className="relative text-3xl font-semibold text-gray-900 dark:text-gray-50">
             Laws
           </h2>

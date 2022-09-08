@@ -6,7 +6,6 @@ import { Dialog, Transition } from '@headlessui/react';
 // import GithubIcon from '@/Icons/GithubIcon';
 //import { CompactLogo, TextLogo } from '@/components/Logo';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
-import ProfileMenu from './ProfileMenu';
 
 const navItems = [
   {
@@ -60,8 +59,8 @@ export const Navbar = () => {
       <div className="mx-auto max-w-screen-xl py-4 px-4 md:px-8">
         <div className="relative flex items-center">
           <Link href="/">
-            <a className="flex-none">
-              <span className="sr-only">MiadV personal blog</span>
+            <a className="flex-none font-semibold">
+              <span className="sr-only">Law Point</span>
               <span className="flex items-center space-x-2 text-3xl">
                 {/* <CompactLogo className="h-[28px] w-[28px]" />
                 <TextLogo className="h-[22px] w-auto fill-gray-900 dark:fill-gray-50" /> */}
@@ -101,7 +100,7 @@ export const Navbar = () => {
               <ThemeToggle />
 
               {/* <GithubIcon className="fill-gray-600 hover:fill-indigo-600 dark:fill-gray-400 dark:hover:fill-indigo-400" /> */}
-              <ProfileMenu />
+              {/* <ProfileMenu /> */}
 
               <MenuPopOver display="flex md:hidden" />
             </div>

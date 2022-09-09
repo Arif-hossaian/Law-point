@@ -65,7 +65,7 @@ export const Navbar = () => {
                 {/* <CompactLogo className="h-[28px] w-[28px]" />
                 <TextLogo className="h-[22px] w-auto fill-gray-900 dark:fill-gray-50" /> */}
                 <span className="text-indigo-600">{`Law `}</span>
-                <span>{` Point`}</span>
+                <span className="text-gray-300">{` Point`}</span>
               </span>
             </a>
           </Link>

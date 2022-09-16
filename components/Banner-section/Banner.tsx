@@ -10,7 +10,7 @@ const Banner: React.FC = () => {
     100
   );
   return (
-    <div className="py-16 px-20 bg-gradient-to-r from-[#614385] to-[#516395]">
+    <div className="py-16 px-20 bg-gray-200 dark:bg-gray-700">
       <div className="mx-auto mt-16 w-full">
         <section
           id="hero"
@@ -18,10 +18,12 @@ const Banner: React.FC = () => {
            sm:px-8 md:flex-row"
         >
           <h1>
-            <span className="mb-4 inline-block text-4xl font-bold text-gray-300 dark:text-gray-50 md:text-6xl">
+            <span className="mb-4 inline-block text-4xl font-bold text-gray-500 dark:text-gray-50 md:text-6xl">
               {'Search your'} <span className="text-indigo-600">{'Laws'}</span>
             </span>
-            <span className="mt-2 block w-72 text-gray-200">{typingText}</span>
+            <span className="mt-2 block w-72 text-gray-600 dark:text-gray-50">
+              {typingText}
+            </span>
           </h1>
 
           <div className="mt-8 h-auto w-[330px] rounded-full text-center md:mt-0 md:w-[350px] lg:w-[500px]">

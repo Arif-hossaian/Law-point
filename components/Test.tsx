@@ -1,9 +1,17 @@
-import { Fragment, useState } from 'react';
+import {
+  FC,
+  Fragment,
+  ReactChild,
+  ReactFragment,
+  ReactPortal,
+  useState,
+} from 'react';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import XmarkIcon from '../icons/XmarkIcon';
 import MInusIcon from '../icons/MInusIcon';
 import PlusIcon from '../icons/PlusIcon';
 import { Card } from './Card/Card';
+import FunnelIcon from '../icons/FunnelIcon';
 
 const filters = [
   {
@@ -23,11 +31,11 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(true);
+const DisplayingData: FC<any> = ({ laws }) => {
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
-    <div className="bg-white dark:bg-gray-600">
+    <div className="bg-white dark:bg-gray-600 mx-auto max-w-screen-lg p-6">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -129,76 +137,150 @@ export default function Example() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
-          <section aria-labelledby="products-heading" className="pt-6 pb-24">
-            <h2 id="products-heading" className="sr-only">
-              Products
-            </h2>
+        <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end">
+            <button
+              type="button"
+              className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+              onClick={() => setMobileFiltersOpen(true)}
+            >
+              <div className="flex justify-between items-center"></div>
+              <span>Filters:- </span> <FunnelIcon />
+            </button>
+          </div>
+        </div>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {/* Filters */}
-              <form className="hidden lg:block dark:text-white">
-                <h3 className="sr-only">Categories</h3>
+        <section aria-labelledby="products-heading" className="pt-6 pb-24 ">
+          <div
+            className="grid grid-cols-1
+          divide-x-4 gap-x-8 gap-y-10 lg:grid-cols-4 "
+          >
+            {/* Filters */}
+            <form className="hidden lg:block dark:text-white ">
+              <h3 className="sr-only">Categories</h3>
 
-                {filters.map((section) => (
-                  <Disclosure
-                    as="div"
-                    key={section.id}
-                    className="border-b border-gray-200 py-6"
-                  >
-                    {({ open }) => (
-                      <>
-                        <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white dark:text-white dark:bg-gray-600 py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900 dark:text-white">
-                              {section.name}
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              {open ? <MInusIcon /> : <PlusIcon />}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
-                            {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
+              {filters.map((section) => (
+                <Disclosure
+                  as="div"
+                  key={section.id}
+                  className="border-b border-gray-200 py-6"
+                >
+                  {({ open }) => (
+                    <>
+                      <h3 className="-my-3 flow-root">
+                        <Disclosure.Button className="flex w-full items-center justify-between bg-white dark:text-white dark:bg-gray-600 py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900 dark:text-white">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            {open ? <MInusIcon /> : <PlusIcon />}
+                          </span>
+                        </Disclosure.Button>
+                      </h3>
+                      <Disclosure.Panel className="pt-6">
+                        <div className="space-y-4">
+                          {section.options.map((option, optionIdx) => (
+                            <div
+                              key={option.value}
+                              className="flex items-center"
+                            >
+                              <input
+                                id={`filter-${section.id}-${optionIdx}`}
+                                name={`${section.id}[]`}
+                                defaultValue={option.value}
+                                type="checkbox"
+                                defaultChecked={option.checked}
+                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 dark:text-white"
+                              />
+                              <label
+                                htmlFor={`filter-${section.id}-${optionIdx}`}
+                                className="ml-3 text-sm text-gray-600 dark:text-white"
                               >
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 dark:text-white"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600 dark:text-white"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                ))}
-              </form>
+                                {option.label}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
+              ))}
+            </form>
 
-              {/* Product grid */}
-              <div className="lg:col-span-3 space-y-3">
-                <Card>info 1</Card>
-                <Card>info 1</Card>
-                <Card>info 1</Card>
+            {/* Product grid */}
+            {laws.length !== 0 ? (
+              <div className="lg:col-span-3 space-y-3 px-5 ">
+                {laws.map(
+                  (
+                    lawInfo: {
+                      title:
+                        | boolean
+                        | ReactChild
+                        | ReactFragment
+                        | ReactPortal
+                        | null
+                        | undefined;
+                      description:
+                        | boolean
+                        | ReactChild
+                        | ReactFragment
+                        | ReactPortal
+                        | null
+                        | undefined;
+                      actNum:
+                        | boolean
+                        | ReactChild
+                        | ReactFragment
+                        | ReactPortal
+                        | null
+                        | undefined;
+                      year:
+                        | boolean
+                        | ReactChild
+                        | ReactFragment
+                        | ReactPortal
+                        | null
+                        | undefined;
+                    },
+                    id: any
+                  ) => (
+                    <Card key={id}>
+                      <div className="flex justify-between items-center px-4">
+                        <div>
+                          <h1 className="text-xl font-extrabold">
+                            {lawInfo.title}
+                          </h1>
+                          <p>{lawInfo.description}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-light">
+                            Act Number:-{' '}
+                            <span className="text-sm text-indigo-600 font-mono">
+                              {lawInfo.actNum}
+                            </span>
+                          </p>
+                          <p className="text-sm font-light">
+                            Year:-{' '}
+                            <span className="text-sm text-indigo-600">
+                              {lawInfo.year}
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                  )
+                )}
               </div>
-            </div>
-          </section>
-        </main>
+            ) : (
+              <div className="flex justify-center items-center text-xl">
+                Loading Please Wait...
+              </div>
+            )}
+          </div>
+        </section>
       </div>
     </div>
   );
-}
+};
+export default DisplayingData;

@@ -10,7 +10,6 @@ export default function Home() {
       <SEO title="Law Point || Online law management application" />
       <Container>
         <Banner />
-
         <Laws />
         <AboutUs />
       </Container>

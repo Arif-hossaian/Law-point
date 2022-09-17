@@ -18,8 +18,12 @@ const filters = [
     id: 'category',
     name: 'Category',
     options: [
-      { value: 'new-arrivals', label: 'Law topic', checked: false },
-      { value: 'sale', label: 'Law topic 2', checked: false },
+      { value: 'new-arrivals', label: 'প্রজাতন্ত্র(republic)', checked: false },
+      {
+        value: 'sale',
+        label: 'রাষ্ট্র পরিচালনার মূলনীতি(Principles of State Administration)',
+        checked: false,
+      },
       { value: 'travel', label: 'Law topic 3', checked: true },
       { value: 'organization', label: 'Law topic 4', checked: false },
       { value: 'accessories', label: 'Law topic 4', checked: false },
@@ -27,12 +31,9 @@ const filters = [
   },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
-const DisplayingData: FC<any> = ({ laws }) => {
+const DisplayingData: FC<any> = ({ list }) => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [searchResult, setSearchResult] = useState('');
 
   return (
     <div className="bg-white dark:bg-gray-600 mx-auto max-w-screen-lg p-6">
@@ -209,9 +210,9 @@ const DisplayingData: FC<any> = ({ laws }) => {
             </form>
 
             {/* Product grid */}
-            {laws.length !== 0 ? (
+            {list.length !== 0 ? (
               <div className="lg:col-span-3 space-y-3 px-5 ">
-                {laws.map(
+                {list.map(
                   (
                     lawInfo: {
                       title:
@@ -246,7 +247,7 @@ const DisplayingData: FC<any> = ({ laws }) => {
                     id: any
                   ) => (
                     <Card key={id}>
-                      <div className="flex justify-between items-center px-4">
+                      <div className="grid grid-cols-1 space-y-6  items-center px-4">
                         <div>
                           <h1 className="text-xl font-extrabold">
                             {lawInfo.title}

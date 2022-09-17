@@ -1,10 +1,102 @@
 import { GetStaticProps } from 'next';
-import { FC } from 'react';
+import { FC, SetStateAction, useEffect, useState } from 'react';
+import ClientOnly from '../components';
+import FilterPanel from '../components/FilterPanle/FilterPanel';
+import Search from '../components/Search/Search';
 import SEO from '../components/SEO/SEO';
 import Test from '../components/Test';
 import Container from '../layout/Container';
 
 const DisplayAllLaws: FC<any> = ({ laws }) => {
+  const [list, setList] = useState(laws);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedRating, setSelectedRating] = useState(null);
+  const [selectedPrice, setSelectedPrice] = useState([1000, 5000]);
+  const [inputSearch, setInputSearch] = useState('');
+  const [resultsFound, setResultsFound] = useState(true);
+  const [cusineOptions, setCusineOptions] = useState([
+    {
+      value: 'প্রজাতন্ত্র',
+      label: 'প্রজাতন্ত্র(republic)',
+      checked: false,
+    },
+    {
+      value: 'রাষ্ট্র পরিচালনার মূলনীতি',
+      label: 'রাষ্ট্র পরিচালনার মূলনীতি(Principles of State Administration)',
+      checked: false,
+    },
+
+    // {
+    //   id: 1,
+    //   checked: false,
+    //   label: 'American',
+    // },
+    // {
+    //   id: 2,
+    //   checked: false,
+    //   label: 'Chines',
+    // },
+    // {
+    //   id: 3,
+    //   checked: false,
+    //   label: 'Italian',
+    // },
+  ]);
+  // const filters = [
+  //   {
+  //     options: [
+  //       {
+  //         value: 'প্রজাতন্ত্র',
+  //         label: 'প্রজাতন্ত্র(republic)',
+  //         checked: false,
+  //       },
+  //       {
+  //         value: 'রাষ্ট্র পরিচালনার মূলনীতি',
+  //         label:
+  //           'রাষ্ট্র পরিচালনার মূলনীতি(Principles of State Administration)',
+  //         checked: false,
+  //       },
+  //     ],
+  //   },
+  // ];
+
+  // const applyFilters = () => {
+  //   let updatedList = laws;
+
+  //   //Cusine checkbox
+  //   const cuisinesChecked = cusineOptions
+  //     .filter((item) => item.checked)
+  //     .map((item) => item.label.toLowerCase());
+
+  //   if (cuisinesChecked.length) {
+  //     updatedList = updatedList.filter((item: any) =>
+  //       cuisinesChecked.includes(item.cuisine)
+  //     );
+  //   }
+
+  //   //Search Input
+  //   if (inputSearch) {
+  //     updatedList = updatedList.filter(
+  //       (item: any) =>
+  //         item.title.toLowerCase().search(inputSearch.toLowerCase().trim()) !==
+  //         -1
+  //     );
+  //   }
+
+  //   setList(updatedList);
+  // };
+
+  // useEffect(() => {
+  //   applyFilters();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [
+  //   selectedRating,
+  //   selectedCategory,
+  //   cusineOptions,
+  //   selectedPrice,
+  //   inputSearch,
+  // ]);
+
   return (
     <>
       <SEO title="Displaying All Laws || Law point" />
@@ -16,11 +108,13 @@ const DisplayAllLaws: FC<any> = ({ laws }) => {
                 Displaying all Laws
               </h1>
             </div>
-            {/* <div className="flex justify-between items-center">
-              <div className="flex-initial w-64">123</div>
-              <div className="flex-initial w-32">132132123</div>
-            </div> */}
-            <Test laws={laws} />
+            <Search
+              value={inputSearch}
+              changeInput={(e: any) => setInputSearch(e.target.value)}
+            />
+            <ClientOnly>
+              <Test list={list} />
+            </ClientOnly>
           </div>
         </div>
       </Container>

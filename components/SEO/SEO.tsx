@@ -20,7 +20,7 @@ const defaultMeta = {
   title: 'Law Point – Online collection of all Bangladesh law',
   description: 'Online collection of all Bangladesh law',
   type: 'website',
-  image: '/static/images/banner.png',
+  image: '',
 };
 
 const SEO: React.FC<SEOProps> = ({ children, ...customMeta }) => {

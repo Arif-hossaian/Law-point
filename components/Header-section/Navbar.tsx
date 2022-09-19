@@ -13,8 +13,8 @@ const navItems = [
     path: '/',
   },
   {
-    title: 'Help',
-    path: '/help',
+    title: 'Layers',
+    path: '/lawyers',
   },
   {
     title: 'About',
@@ -27,15 +27,15 @@ const navItems = [
 ];
 
 export const Navbar = () => {
-  const [isStiky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     let offset = 50;
     function onScroll() {
-      if (!isStiky && window.scrollY > offset) {
+      if (!isSticky && window.scrollY > offset) {
         setIsSticky(true);
-      } else if (isStiky && window.scrollY <= offset) {
+      } else if (isSticky && window.scrollY <= offset) {
         setIsSticky(false);
       }
     }
@@ -44,14 +44,14 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, [isStiky]);
+  }, [isSticky]);
 
   return (
     <div
       id="navbar"
       className={clsx(
         'fixed inset-x-0 top-0 z-40 h-16 transition-colors duration-300',
-        isStiky || router.asPath !== '/'
+        isSticky || router.asPath !== '/'
           ? 'border-b border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800'
           : 'bg-transparent'
       )}

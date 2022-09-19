@@ -112,6 +112,7 @@ const DisplayAllLaws: FC<any> = ({ laws }) => {
               value={inputSearch}
               changeInput={(e: any) => setInputSearch(e.target.value)}
             />
+            <div className=""></div>
             <ClientOnly>
               <Test list={list} />
             </ClientOnly>

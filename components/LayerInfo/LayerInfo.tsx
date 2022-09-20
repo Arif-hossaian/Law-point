@@ -9,6 +9,7 @@ import LocationIcon from '../../icons/LocationIcon';
 import AcademicIcon from '../../icons/AcademicIcon';
 import { Button } from '../Button';
 import WebsiteIcon from '../../icons/WebsiteIcon';
+import PhoneIcon from '../../icons/PhoneIcon';
 
 interface ChildProps {
   pt?: boolean;
@@ -106,7 +107,7 @@ const LayerInfo: FC<LayerInfoPropsProps> = ({
           <div>
             <React.Fragment key={name}>
               <Card className="mt-5">
-                <div className="mx-auto max-w-screen-md grid grid-cols-2">
+                <div className="mx-auto max-w-screen-md grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1">
                   <Image
                     src={image}
                     layout="fixed"
@@ -131,15 +132,27 @@ const LayerInfo: FC<LayerInfoPropsProps> = ({
                     {personalWebsite ? (
                       <div className="flex justify-start items-center mt-2">
                         <WebsiteIcon />
-                        <p className="text-light text-indigo-400 ml-1">
+                        <a
+                          href={personalWebsite}
+                          target="_blank"
+                          className="text-light text-indigo-400 ml-1 cursor-pointer"
+                        >
                           {personalWebsite}
-                        </p>
+                        </a>
                       </div>
                     ) : (
                       ''
                     )}
+                    <div className="flex justify-start items-center mt-2">
+                      <PhoneIcon />
+                      <p className="text-light text-indigo-400 ml-1">
+                        {phone.substring(4)}
+                      </p>
+                    </div>
                     <p className="mt-5 font-mono">{content}</p>
-                    <Button className="mt-5">Call now</Button>
+                    <Button className="mt-5">
+                      <a href={phone}>Call Now</a>
+                    </Button>
                   </div>
                 </div>
               </Card>

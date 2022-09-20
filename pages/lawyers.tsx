@@ -13,7 +13,7 @@ export const data = [
     content:
       'Admiralty and Maritime, Banking and Finance, Business Law, Commercial Litigation, Corporate Litigation',
     address: '4/A/1 (3rd floor), Road no: 2, Gulshan-1, Dhaka 1212',
-    phone: '+880 1770-295000',
+    phone: 'tel:+880 1770-295000',
     personalWebsite: 'https://shossainandassociates.com/',
   },
   {
@@ -25,7 +25,7 @@ export const data = [
     content: '',
     address:
       'Premier FM Heights, 1st Floor, House No. 88, Road - 10/1, Block – D, Niketon, Gulshan, Dhaka 1212',
-    phone: '+8801819212002',
+    phone: 'tel:+8801819212002',
   },
   {
     _id: 3,
@@ -36,7 +36,7 @@ export const data = [
     content: '',
     address:
       'Premier FM Heights, 1st Floor, House No. 88, Road - 10/1, Block – D, Niketon, Gulshan, Dhaka 1212',
-    phone: '+8801819212002',
+    phone: 'tel:+8801819212002',
     personalWebsite: '',
   },
   {
@@ -47,7 +47,7 @@ export const data = [
     designation: 'Lawyer',
     content: '',
     address: 'Apartment A2, House-31, Road-4, Block F, Banani, Dhaka 1213',
-    phone: '+880 17 07108000',
+    phone: 'tel:+880 17 07108000',
     personalWebsite: '',
   },
 ];

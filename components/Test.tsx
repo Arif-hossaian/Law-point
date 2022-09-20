@@ -24,9 +24,6 @@ const filters = [
         label: 'রাষ্ট্র পরিচালনার মূলনীতি(Principles of State Administration)',
         checked: false,
       },
-      { value: 'travel', label: 'Law topic 3', checked: true },
-      { value: 'organization', label: 'Law topic 4', checked: false },
-      { value: 'accessories', label: 'Law topic 4', checked: false },
     ],
   },
 ];

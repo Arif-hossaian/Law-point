@@ -42,7 +42,7 @@ export const Expandable: FunctionComponent<ExpandableProps> = ({
         ? { opacity: 1, height, overflow: 'unset' }
         : { opacity: 0, height: 0, overflow: 'hidden' }
     );
-  }, [open, height]);
+  }, [open, height, api]);
 
   return (
     <animated.div
@@ -92,6 +92,7 @@ const LayerInfo: FC<LayerInfoPropsProps> = ({
           <div className="flex justify-between items-center space-x-3">
             <Image
               src={image}
+              alt="picture"
               layout="fixed"
               height={50}
               width={50}
@@ -110,6 +111,7 @@ const LayerInfo: FC<LayerInfoPropsProps> = ({
                 <div className="mx-auto max-w-screen-md grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1">
                   <Image
                     src={image}
+                    alt="lawyer_picture"
                     layout="fixed"
                     height={300}
                     width={300}
@@ -135,6 +137,7 @@ const LayerInfo: FC<LayerInfoPropsProps> = ({
                         <a
                           href={personalWebsite}
                           target="_blank"
+                          rel="noreferrer"
                           className="text-light text-indigo-400 ml-1 cursor-pointer"
                         >
                           {personalWebsite}

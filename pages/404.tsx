@@ -7,7 +7,7 @@ import SEO from '../components/SEO/SEO';
 export default function NotFound() {
   return (
     <>
-      <SEO title="Page not found" />
+      <SEO title="Page not found || Online law management application" />
       <Container>
         <div className="flex flex-col items-center justify-center min-h-screen">
           <h1 className="mb-4 text-5xl font-bold">404</h1>

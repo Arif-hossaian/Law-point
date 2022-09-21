@@ -4,16 +4,17 @@ import { Card } from '../Card/Card';
 import WebDevIcon from '../../icons/WebDevIcon';
 import GraphicDesignIcon from '../../icons/GraphicDesignIcon';
 import ConsultationIcon from '../../icons/ConsultationIcon';
+import Image from 'next/image';
 
 const FloatingItems: React.FC<{
   className?: string;
-  Icon: JSX.Element;
-  title: string;
+  Icon?: JSX.Element;
+  title?: string;
   subtitle: string;
 }> = ({ className, Icon, title, subtitle }) => {
   return (
-    <Card className={clsx('px-4 py-6 text-center md:text-left', className)}>
-      <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-indigo-50 dark:bg-indigo-600 md:mx-0">
+    <Card className={clsx('px-4 py-6 text-center md:text-center', className)}>
+      <span className="mx-auto flex h-20 max-w-screen-sm items-center justify-center rounded-full md:mx-0">
         {Icon}
       </span>
 
@@ -36,7 +37,7 @@ export const AboutUs = () => {
           <span className="mx-auto mt-2 block h-1.5 w-[80px] rounded-full bg-indigo-600 lg:mx-0" />
 
           <p className="mt-6 break-words text-lg">
-            {`We are student of CSE and doing our final year project`}
+            {`We are student of Computer Science and Engineering(CSE) and doing our final year project`}
           </p>
         </div>
 
@@ -44,14 +45,26 @@ export const AboutUs = () => {
           <span className="absolute inset-y-2/4 right-0 -z-10 h-96 max-h-full w-96 max-w-full -translate-y-1/2 rounded-full bg-gradient-radial from-indigo-500/40 via-fuchsia-400/10 blur-2xl" />
           <FloatingItems
             Icon={
-              <WebDevIcon className="fill-indigo-600 dark:fill-indigo-50" />
+              <Image
+                src={`https://res.cloudinary.com/arifscloud/image/upload/v1663743207/lawyers/rsddx6qwe0boavdvejab.jpg`}
+                alt="Arif hossain"
+                className=" rounded-full"
+                height={100}
+                width={100}
+              />
             }
             title="Limon"
             subtitle="Senior UI/UX Designer and Law information analysis ..."
           />
           <FloatingItems
             Icon={
-              <GraphicDesignIcon className="fill-indigo-600 dark:fill-indigo-50" />
+              <Image
+                src={`https://res.cloudinary.com/arifscloud/image/upload/v1663742697/lawyers/xlab8skgmbtvt33qhkt9.jpg`}
+                alt="Arif hossain"
+                className=" rounded-full"
+                height={100}
+                width={100}
+              />
             }
             title="Arif hossain"
             subtitle="Junior software Engineer"
@@ -59,10 +72,16 @@ export const AboutUs = () => {
           />
           <FloatingItems
             Icon={
-              <ConsultationIcon className="fill-indigo-600 dark:fill-indigo-50" />
+              <Image
+                src={`https://res.cloudinary.com/arifscloud/image/upload/v1663743530/lawyers/fahdniu6wye0g6kbdqpk.jpg`}
+                alt="Arif hossain"
+                className=" rounded-full"
+                height={100}
+                width={100}
+              />
             }
-            title="MD karim"
-            subtitle="Senior Consultation of Bangladesh Law"
+            title="Lawpoint"
+            subtitle="Online Law Management Web Application of Bangladesh Law"
           />
         </div>
       </div>

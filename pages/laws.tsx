@@ -99,12 +99,12 @@ const DisplayAllLaws: FC<any> = ({ laws }) => {
 
   return (
     <>
-      <SEO title="Displaying All Laws || Law point" />
+      <SEO title="Displaying All Laws || Online law management application" />
       <Container>
         <div className="mx-auto  mt-28 max-w-screen-2xl">
           <div className="pb-8">
             <div className="sm:text-center">
-              <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-gray-50 sm:text-4xl">
+              <h1 className="text-5xl font-light mt-28 text-center pb-10">
                 Displaying all Laws
               </h1>
             </div>

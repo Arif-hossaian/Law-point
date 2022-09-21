@@ -4,10 +4,8 @@ const next = require('next');
 
 const dev = process.env.NODE_ENV !== 'production';
 const hostname =
-  process.env.NODE_ENV !== 'production'
-    ? 'localhost'
-    : 'law-point.vercel.app';
-const port = process.env.PORT || 3000;
+  process.env.NODE_ENV !== 'production' ? 'localhost' : 'lawpoint.online';
+const port = process.env.PORT || 4700;
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port });
 const handle = app.getRequestHandler();

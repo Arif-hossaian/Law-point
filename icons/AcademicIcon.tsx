@@ -2,7 +2,7 @@ import React from 'react';
 
 const AcademicIcon = () => {
   return (
-    <div>
+    <div className="text-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

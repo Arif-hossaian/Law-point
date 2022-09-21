@@ -13,15 +13,15 @@ const navItems = [
     path: '/',
   },
   {
-    title: 'Layers',
+    title: 'Lawyers',
     path: '/lawyers',
   },
   {
-    title: 'About',
-    path: '/#about',
+    title: 'Help Line',
+    path: '/helpline',
   },
   {
-    title: 'Contact',
+    title: 'Contact Us',
     path: '/contact',
   },
 ];

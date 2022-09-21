@@ -37,7 +37,7 @@ export const AboutUs = () => {
           <span className="mx-auto mt-2 block h-1.5 w-[80px] rounded-full bg-indigo-600 lg:mx-0" />
 
           <p className="mt-6 break-words text-lg">
-            {`We are student of Computer Science and Engineering(CSE) and doing our final year project`}
+            {`We are students of Computer Science and Engineering(CSE) and doing our final year project`}
           </p>
         </div>
 

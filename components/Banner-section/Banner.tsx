@@ -33,12 +33,12 @@ const Banner: React.FC = () => {
            sm:px-8 md:flex-row"
         >
           <h1>
-            <span className="mb-4 inline-block text-2xl font-bold text-gray-500 dark:text-gray-50 md:text-6xl">
+            <span className="mb-4 inline-block text-2xl font-bold text-gray-500 dark:text-gray-50 md:text-6xl lg:text-6xl">
               {'Find out your desire'}
             </span>
             <br></br>
             <span
-              className="text-indigo-600 md:text-4xl mt-1 text-lg mb-2"
+              className="text-indigo-500 md:text-6xl lg:text-6xl text-xl mt-1 mb-2"
               ref={el}
             ></span>
             <span className="mt-4 block w-72 text-gray-600 dark:text-gray-50">

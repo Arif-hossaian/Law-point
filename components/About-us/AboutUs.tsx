@@ -37,7 +37,12 @@ export const AboutUs = () => {
           <span className="mx-auto mt-2 block h-1.5 w-[80px] rounded-full bg-indigo-600 lg:mx-0" />
 
           <p className="mt-6 break-words text-lg">
-            {`We are students of Computer Science and Engineering(CSE) and doing our final year project`}
+            {`We are students of Computer Science and Engineering(CSE) and doing our final year project.  `}
+            <br></br>
+            <a className="font-semibold text-indigo-600 dark:text-indigo-400">
+              This project belongs is that:-
+            </a>
+            {` A large number of victims fall into different types of harassment. They can get help easily from here. At the same time, a law student or victim gets help from here. A lawyer can practice of law and find out clients whom needs help. It is where people with legal affairs or matters go to consult lawyers or Governments help departments. Conventionally, law firms are provided services through the Law Point. Their information and the contact details given the Law Point website and App clearly with the consulting departments. So a victim can easily find out his/her desire lawyer. It’s super easy to communicate via phone using the Law Point App`}
           </p>
         </div>
 

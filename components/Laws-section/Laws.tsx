@@ -18,11 +18,11 @@ export const Laws = () => {
           <span className="mx-auto mt-2 block h-1.5 w-[80px] rounded-full bg-indigo-600 lg:mx-0" />
 
           <p className="mt-6 break-words text-lg">
-            {`Most of my web apps are specifically designed based on the employer's needs and are private. But feel free to check out the`}{' '}
+            {`In this section, users can read constitutional `}{' '}
             <a className="font-semibold text-indigo-600 dark:text-indigo-400">
               laws
             </a>
-            {` page where I maintain a list of some of my personal/public projects.`}
+            {` with a search and category-based filtering options too`}
           </p>
 
           <div className="mt-8">

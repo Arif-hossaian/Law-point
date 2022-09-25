@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next';
-import { FC, SetStateAction, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import ClientOnly from '../components';
-import FilterPanel from '../components/FilterPanle/FilterPanel';
 import Search from '../components/Search/Search';
 import SEO from '../components/SEO/SEO';
 import Test from '../components/Test';
@@ -9,99 +8,65 @@ import Container from '../layout/Container';
 
 const DisplayAllLaws: FC<any> = ({ laws }) => {
   const [list, setList] = useState(laws);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedRating, setSelectedRating] = useState(null);
-  const [selectedPrice, setSelectedPrice] = useState([1000, 5000]);
   const [inputSearch, setInputSearch] = useState('');
-  const [resultsFound, setResultsFound] = useState(true);
   const [cusineOptions, setCusineOptions] = useState([
     {
-      value: 'প্রজাতন্ত্র',
-      label: 'প্রজাতন্ত্র(republic)',
+      id: 1,
+      label: 'প্রজাতন্ত্র',
       checked: false,
     },
     {
-      value: 'রাষ্ট্র পরিচালনার মূলনীতি',
-      label: 'রাষ্ট্র পরিচালনার মূলনীতি(Principles of State Administration)',
+      id: 2,
+      label: 'রাষ্ট্র পরিচালনার মূলনীতি',
       checked: false,
     },
-
-    // {
-    //   id: 1,
-    //   checked: false,
-    //   label: 'American',
-    // },
-    // {
-    //   id: 2,
-    //   checked: false,
-    //   label: 'Chines',
-    // },
-    // {
-    //   id: 3,
-    //   checked: false,
-    //   label: 'Italian',
-    // },
   ]);
-  // const filters = [
-  //   {
-  //     options: [
-  //       {
-  //         value: 'প্রজাতন্ত্র',
-  //         label: 'প্রজাতন্ত্র(republic)',
-  //         checked: false,
-  //       },
-  //       {
-  //         value: 'রাষ্ট্র পরিচালনার মূলনীতি',
-  //         label:
-  //           'রাষ্ট্র পরিচালনার মূলনীতি(Principles of State Administration)',
-  //         checked: false,
-  //       },
-  //     ],
-  //   },
-  // ];
+  const handleChangeChecked = (id: any) => {
+    const cusisesStateList = cusineOptions;
+    const changeCheckCuisies = cusisesStateList.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            checked: !item.checked,
+          }
+        : item
+    );
+    setCusineOptions(changeCheckCuisies);
+  };
+  const applyFilters = () => {
+    let updatedList = laws;
 
-  // const applyFilters = () => {
-  //   let updatedList = laws;
+    //Cusine checkbox
+    const cuisinesChecked = cusineOptions
+      .filter((item) => item.checked)
+      .map((item) => item.label.trim());
 
-  //   //Cusine checkbox
-  //   const cuisinesChecked = cusineOptions
-  //     .filter((item) => item.checked)
-  //     .map((item) => item.label.toLowerCase());
+    if (cuisinesChecked.length) {
+      updatedList = updatedList.filter((item: any) =>
+        cuisinesChecked.includes(item.category)
+      );
+    }
+    //Search Input
+    if (inputSearch) {
+      updatedList = updatedList.filter(
+        (item: any) =>
+          item.title.toLowerCase().search(inputSearch.trim()) !== -1
+      );
+    }
 
-  //   if (cuisinesChecked.length) {
-  //     updatedList = updatedList.filter((item: any) =>
-  //       cuisinesChecked.includes(item.cuisine)
-  //     );
-  //   }
+    setList(updatedList);
+  };
 
-  //   //Search Input
-  //   if (inputSearch) {
-  //     updatedList = updatedList.filter(
-  //       (item: any) =>
-  //         item.title.toLowerCase().search(inputSearch.toLowerCase().trim()) !==
-  //         -1
-  //     );
-  //   }
-
-  //   setList(updatedList);
-  // };
-
-  // useEffect(() => {
-  //   applyFilters();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [
-  //   selectedRating,
-  //   selectedCategory,
-  //   cusineOptions,
-  //   selectedPrice,
-  //   inputSearch,
-  // ]);
-
+  useEffect(() => {
+    applyFilters();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cusineOptions, inputSearch]);
+  if (!list) return <p className="text-center">Loading...</p>;
   return (
     <>
       <SEO title="Displaying All Laws || Online law management application" />
       <Container>
-        <div className="mx-auto  mt-28 max-w-screen-2xl">
+        <div className="mx-auto  mt-28 max-w-screen-lg">
           <div className="pb-8">
             <div className="sm:text-center">
               <h1 className="text-5xl font-light mt-28 text-center pb-10">
@@ -112,9 +77,12 @@ const DisplayAllLaws: FC<any> = ({ laws }) => {
               value={inputSearch}
               changeInput={(e: any) => setInputSearch(e.target.value)}
             />
-            <div className=""></div>
             <ClientOnly>
-              <Test list={list} />
+              <Test
+                list={list}
+                cusineOptions={cusineOptions}
+                changeChecked={handleChangeChecked}
+              />
             </ClientOnly>
           </div>
         </div>

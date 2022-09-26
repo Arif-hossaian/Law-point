@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { FC, useEffect, useState } from 'react';
 import ClientOnly from '../components';
 import Search from '../components/Search/Search';
@@ -92,7 +92,7 @@ const DisplayAllLaws: FC<any> = ({ laws }) => {
 };
 export default DisplayAllLaws;
 
-export const getStaticProps: GetStaticProps<any> = async () => {
+export const getServerSideProps: GetServerSideProps<any> = async () => {
   const res = await fetch(`https://law-point-api.herokuapp.com/api/get_laws`);
   const { laws } = await res.json();
 

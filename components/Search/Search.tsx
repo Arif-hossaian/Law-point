@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 const Search: FC<any> = ({ value, changeInput }) => {
   return (
-    <form className="flex items-center mx-auto max-w-screen-md mt-10 mb-10">
+    <form className="flex items-center mx-auto max-w-screen-md px-10 mt-10 mb-10">
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>

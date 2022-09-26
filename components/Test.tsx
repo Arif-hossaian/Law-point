@@ -3,17 +3,19 @@ import { Card } from './Card/Card';
 import Checkbox from './checkbox/Checkbox';
 
 const DisplayingData: FC<any> = ({ list, cusineOptions, changeChecked }) => {
+  if (!list) return <p className="text-center text-xl">Loading...</p>;
   return (
-    <div className="bg-white dark:bg-gray-600 mx-auto max-w-screen-lg p-6">
+    <div className="bg-white dark:bg-gray-600 mx-auto max-w-screen-lg px-10">
       <div>
         <section aria-labelledby="products-heading" className="pt-6 pb-24 ">
           <div
             className="grid grid-cols-1
-          divide-x-4 gap-x-8 gap-y-10 lg:grid-cols-4 "
+          divide-x-4 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
             {/* Filters */}
 
-            <Card className="h-32">
+            <Card className="h-36">
+              <h1 className="pb-3 text-indigo-500">Categories:- </h1>
               {cusineOptions?.map((cusineOption: any) => (
                 <Checkbox
                   key={cusineOption.id}
@@ -73,22 +75,29 @@ const DisplayingData: FC<any> = ({ list, cusineOptions, changeChecked }) => {
                           <h1 className="text-xl font-extrabold">
                             {lawInfo.title}
                           </h1>
-                          <p>{lawInfo.description}</p>
+                          <div className="mt-3">
+                            <p className="text-sm font-light">
+                              Act Number:-{' '}
+                              <span className="text-sm text-indigo-500 font-mono">
+                                {lawInfo.actNum}
+                              </span>
+                            </p>
+                            <p className="text-sm font-light">
+                              Category:-{' '}
+                              <span className="text-sm text-indigo-500 font-mono">
+                                {lawInfo.category}
+                              </span>
+                            </p>
+                            <p className="text-sm font-light">
+                              Year:-{' '}
+                              <span className="text-sm text-indigo-500">
+                                {lawInfo.year}
+                              </span>
+                            </p>
+                          </div>
                         </div>
                         <div>
-                          <p className="text-sm font-light">
-                            Act Number:-{' '}
-                            <span className="text-sm text-indigo-600 font-mono">
-                              {lawInfo.actNum}
-                            </span>
-                          </p>
-                          <p>{lawInfo.category}</p>
-                          <p className="text-sm font-light">
-                            Year:-{' '}
-                            <span className="text-sm text-indigo-600">
-                              {lawInfo.year}
-                            </span>
-                          </p>
+                          <p>{lawInfo.description}</p>
                         </div>
                       </div>
                     </Card>

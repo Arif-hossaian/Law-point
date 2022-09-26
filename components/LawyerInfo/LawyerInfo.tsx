@@ -54,7 +54,7 @@ const LawyerInfo: FC<LawyerInfoProps> = ({
             </Button>
             <Button
               variant="outline"
-              className="bg-transparent  rounded-full font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent"
+              className="bg-transparent  rounded-full font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent"
             >
               <a href={email}>Send Email</a>
             </Button>

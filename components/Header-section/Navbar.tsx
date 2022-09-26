@@ -160,12 +160,9 @@ const MenuPopOver = ({ display }: { display: string }) => {
           </Transition.Child>
 
           <div className="fixed top-0 bottom-0 left-0 w-full max-w-xs rounded-r-2xl bg-white p-6 shadow-lg dark:bg-gray-800 ">
-            <a className="mx-auto mt-4">
-              <span className="flex items-center space-x-2">
-                {/* <CompactLogo className="h-[32px] w-[32px]" />
-                <TextLogo className="h-[22px] w-auto fill-gray-900 dark:fill-gray-50" /> */}
-                Law point
-              </span>
+            <a className="mx-auto mt-4 text-3xl">
+              <span className="text-indigo-600">{`Law `}</span>
+              <span className="text-gray-300">{` Point`}</span>
             </a>
 
             <ul className="mt-16 space-y-6">

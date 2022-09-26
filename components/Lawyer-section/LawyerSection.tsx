@@ -28,7 +28,7 @@ const LawyerSection = () => {
             </Link>
           </div>
         </div>
-        <div className="relative mt-8 h-auto w-[330px] rounded-full text-center md:mt-0 md:w-[350px] lg:w-[500px]">
+        <div className="relative mx-auto max-w-xl mt-16 ">
           <span className="absolute inset-y-2/4 right-0 -z-10 h-96 max-h-full w-96 max-w-full -translate-y-1/2 rounded-full bg-gradient-radial from-indigo-500/40 via-fuchsia-400/10 blur-2xl" />
           <ImageAnimation animationData={LawyerImage} />
         </div>

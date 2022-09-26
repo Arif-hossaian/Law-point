@@ -8,7 +8,7 @@ const HelplineSection = () => {
   return (
     <section className="py-16 mx-auto max-w-screen-lg px-5">
       <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-20">
-        <div className="relative mt-8 h-auto w-[350px] rounded-full text-center md:mt-0 md:w-[350px] lg:w-[500px]">
+        <div className="relative mx-auto max-w-xl  text-center md:mt-16 lg:mt-16">
           <span className="absolute inset-y-2/4 right-0 -z-10 h-96 max-h-full w-96 max-w-full -translate-y-1/2 rounded-full bg-gradient-radial from-indigo-500/40 via-fuchsia-400/10 blur-2xl" />
           <ImageAnimation animationData={HelplineSupportImage} />
         </div>

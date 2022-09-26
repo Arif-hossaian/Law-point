@@ -16,7 +16,7 @@ const HelplineSection = () => {
           <h2 className="relative text-3xl font-semibold text-gray-900 dark:text-gray-50">
             Helpline
           </h2>
-          <span className="mx-auto mt-2 block h-1.5 w-[100px] rounded-full bg-indigo-600 lg:mx-0" />
+          <span className="mx-auto mt-2 block h-1.5 w-[100px] rounded-full bg-indigo-600  lg:mx-0" />
 
           <p className="mt-6 break-words text-lg">
             {`With the same time, a victim can get instant help from LAW ENFORCEMENT AGENCIES using the Law Point. Also Flood affected people easily get help to contact with `}

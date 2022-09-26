@@ -78,7 +78,7 @@ const HelpLine = () => {
         <h1 className="text-5xl font-light mt-28 text-center pb-10">
           Essential Helplines
         </h1>
-        <div className=" mx-auto max-w-screen-lg grid md:grid-cols-4 lg:grid-cols-4 sm:grid-cols-1 gap-10">
+        <div className=" mx-auto max-w-screen-lg grid md:grid-cols-4 lg:grid-cols-4 sm:grid-cols-1 gap-10 px-5">
           {contactData.length !== 0 ? (
             contactData.map((item, _id) => (
               <div key={_id}>
@@ -86,18 +86,19 @@ const HelpLine = () => {
                   <Image
                     src={item.image}
                     alt="Contact logo"
+                    layout="responsive"
                     height={200}
                     width={200}
                   />
 
                   <div className="px-5 pb-5">
                     <a href="#">
-                      <h5 className="text-md mt-6 w-auto font-semibold tracking-tight text-gray-900 dark:text-white">
+                      <h5 className="text-md text-center mt-6 w-auto font-semibold tracking-tight text-gray-900 dark:text-white">
                         {item.name}
                       </h5>
                     </a>
 
-                    <div className="mt-5">
+                    <div className="mt-5 text-center">
                       <Button>
                         <a href={item.phone}>Call Now</a>
                       </Button>
